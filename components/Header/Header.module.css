@@ -1,0 +1,40 @@
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #D8D8D8;
+}
+
+.logo a {
+    font-size: 35px;
+    text-transform: uppercase;
+}
+
+.logo a span {
+    color: #A18A68;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.line {
+    background: #707070;
+    width: 1px;
+    height: 17px
+}
+
+.menu ul {
+    display: flex;
+    gap: 60px;
+}
+
+.actions {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
