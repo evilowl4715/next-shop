@@ -6,6 +6,9 @@ export const TopMenu = ({ className, ...props }: TopMenuProps) => {
 		<div className={styles.menu} {...props}>
 			<ul>
 				<li>
+					<a href='/about/'>Главная</a>
+				</li>
+				<li>
 					<a href='/catalog/'>Магазин</a>
 				</li>
 				<li>

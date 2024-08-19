@@ -8,9 +8,7 @@ import { motion } from 'framer-motion';
 
 export const HeaderSearch = ({ className, ...props }: HeaderSearchProps) => {
 	const [isSearchOpened, setIsSearchOpened] = useState<boolean>(false);
-	const [isMobile, setIsMobile] = useState<boolean>(
-		window.matchMedia('(max-width: 841px)').matches
-	);
+	const [isMobile, setIsMobile] = useState<boolean>(false);
 	const searchRef = useRef<HTMLDivElement>(null);
 	const variantsSearch = {
 		visible: {
@@ -38,6 +36,8 @@ export const HeaderSearch = ({ className, ...props }: HeaderSearchProps) => {
 		const handleResize = () => {
 			setIsMobile(window.matchMedia('(max-width: 841px)').matches);
 		};
+
+		handleResize();
 
 		window.addEventListener('resize', handleResize);
 

@@ -4,7 +4,12 @@
 }
 
 @media (max-width: 840px) {
-    .menu {
-        display: none;
+    .menu ul {
+        flex-direction: column;
+        gap: 25px;
+    }
+    
+    .menu ul li {
+        font-size: 20px;
     }
 }

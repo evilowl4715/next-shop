@@ -7,10 +7,8 @@ export const HeaderCart = ({ className, ...props }: HeaderCartProps) => {
 	const [count, setCount] = useState<number>(1);
 	return (
 		<div className={styles.cart} {...props}>
-			<a className={styles.button} href='/cart/'>
-				<CartIcon />
-				{count > 0 && <span className={styles.count}>{count}</span>}
-			</a>
+			<CartIcon />
+			{count > 0 && <span className={styles.count}>{count}</span>}
 		</div>
 	);
 };

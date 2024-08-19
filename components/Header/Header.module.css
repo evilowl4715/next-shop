@@ -5,6 +5,9 @@
     box-sizing: border-box;
     padding-bottom: 20px;
     border-bottom: 1px solid #D8D8D8;
+    background: #fff;
+    position: relative;
+    z-index: 99;
 }
 
 .logo a {
@@ -37,10 +40,53 @@
 .navbar {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
+    flex-direction: column;
     background: none;
+    gap: 5px;
     border: none;
     outline: none;
+    position: relative;
+    width: 20px;
+}
+
+.navbar span {
+    background: #000;
+    width: 20px;
+    height: 1px;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.navbar span:last-child {
+    width: 13px;
+}
+
+.opened span:last-child {
+    display: none;
+}
+
+.opened span:first-child {
+    transform: rotate(43deg);
+    transform-origin: center;
+    top: 0;
+    position: absolute;
+}
+
+.opened span:nth-child(2) {
+    transform: rotate(-43deg);
+    top: 0;
+    position: absolute;
+    transform-origin: center;
+}
+
+.MobMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 88;
 }
 
 @media (max-width: 840px) {
@@ -52,5 +98,9 @@
     .row {
         border-bottom: none;
         padding-bottom: 15px;
+    }
+
+    .actions {
+        gap: 15px;
     }
 }
