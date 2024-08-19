@@ -28,13 +28,29 @@
     height: 17px
 }
 
-.menu ul {
-    display: flex;
-    gap: 60px;
-}
-
 .actions {
     display: flex;
     gap: 40px;
     align-items: center;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+@media (max-width: 840px) {
+
+    .line {
+        display: none;
+    }
+
+    .row {
+        border-bottom: none;
+        padding-bottom: 15px;
+    }
 }

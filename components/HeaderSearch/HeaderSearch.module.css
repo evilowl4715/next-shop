@@ -1,0 +1,51 @@
+.search {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.SearchBlock {
+    position: relative;
+    width: 0;
+    overflow: hidden;
+}
+
+.SearchBtnOpen {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 19px;
+    height: 19px;
+}
+
+.SearchBtnOpen:hover path:first-child {
+    fill: #A18A68;
+}
+
+.search input {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding-left: 30px;
+    height: 32px;
+    background: #efefef;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+}
+
+.InputIcon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@media (max-width: 840px) {
+    .SearchBlock {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+    }
+}
