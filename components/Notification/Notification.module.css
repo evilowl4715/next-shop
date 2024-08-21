@@ -1,0 +1,18 @@
+.notification {
+	box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.15);
+	background: #efefef;
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	padding: 20px;
+	box-sizing: border-box;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 169%;
+	color: #707070;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10px;
+    z-index: 5;
+}
