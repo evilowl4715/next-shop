@@ -1,0 +1,18 @@
+.paginationList {
+	display: flex;
+	gap: 10px;
+    position: relative;
+}
+
+.paginationItem {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 40px;
+	height: 40px;
+	border: 1px solid #d8d8d8;
+	border-radius: 4px;
+    position: relative;
+    transition: all 0.3s;
+    cursor: pointer;
+}

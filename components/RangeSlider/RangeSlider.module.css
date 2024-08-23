@@ -1,0 +1,27 @@
+.track {
+	background: #d8d8d8;
+	height: 2px;
+}
+
+.thumb {
+	width: 2px;
+	height: 10px;
+	background: #000;
+	display: block;
+	cursor: pointer;
+}
+
+.filler {
+	height: 2px;
+	background: #000000;
+	left: 0;
+	position: absolute;
+}
+
+.prices {
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 157%;
+	color: #707070;
+    margin-top: 10px;
+}

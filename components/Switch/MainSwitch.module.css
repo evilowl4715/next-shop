@@ -1,0 +1,31 @@
+.switch {
+    background: #707070;
+    width: 34px;
+    height: 20px;
+    position: relative;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.switch.checked {
+    background: #a18a68;
+}
+
+.slider {
+    width: 13px;
+    height: 13px;
+    border-radius: 100%;
+    background: #fff;
+    display: block;
+    position: absolute;
+    left: 3px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: left 0.3s ease;
+}
+
+.slider.checked {
+    left: calc(100% - 16px);
+}
