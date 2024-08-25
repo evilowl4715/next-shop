@@ -1,0 +1,27 @@
+.HeaderMobNav {
+    background: #fff;
+    box-sizing: border-box;
+    padding: 60px 15px;
+    overflow-y: auto;
+}
+
+.top {
+    margin-bottom: 50px;
+}
+
+.bottom {
+    padding-top: 25px;
+    margin-top: 30px;
+    box-sizing: border-box;
+    border-top: 1px solid #d8d8d8;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.bottom a {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 20px;
+}
