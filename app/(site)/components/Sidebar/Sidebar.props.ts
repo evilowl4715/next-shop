@@ -1,5 +1,8 @@
-import { DetailedHTMLProps, HTMLAttributes } from "react";
+import { Category } from '@/interfaces/filter.interface';
 
-export interface SidebarProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-    
+export interface SidebarProps {
+    categories: Category[];
+    minPrice: number;
+    maxPrice: number;
+    className?: string;
 }

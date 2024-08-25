@@ -8,10 +8,7 @@ export default function Home() {
 	return (
 		<main className={styles.main}>
 			<div className='container'>
-				<MainSelect />
-				<MainSwitch />
-				<RangeSlider />
-				<Pagination />
+		
 			</div>
 		</main>
 	);

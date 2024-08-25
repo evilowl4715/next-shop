@@ -1,5 +1,4 @@
 'use client';
-import { MainSelectProps } from './MainSelect.props';
 import styles from './MainSelect.module.css';
 import {
 	Listbox,
@@ -7,28 +6,32 @@ import {
 	ListboxOption,
 	ListboxOptions
 } from '@headlessui/react';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import ArrowIcon from './Arrow.svg';
 import cn from 'classnames';
 import { Category } from '@/interfaces/filter.interface';
+import { useRouter, useSearchParams } from 'next/navigation';
 
-const defaultCategory: Category = {
-	id: -1,
-	name: 'Категория'
-};
-
-export const MainSelect = ({ category }: { category: Category[] }) => {
+export const MainSelect = ({ category = [] }: { category: Category[] }) => {
+	const searchParams = useSearchParams();
+	const router = useRouter();
+	const defaultCategory: Category = { id: -1, name: 'Категория' };
 	const categoriesWithDefault = [defaultCategory, ...category];
-	const [selectedCat, setSelectedCat] = useState<Category>(categoriesWithDefault[0]);
-	const listboxRef = useRef<HTMLDivElement>(null);
+	const [selectedCat, setSelectedCat] = useState<Category>(
+		categoriesWithDefault.find(
+			cat => cat.id === parseInt(searchParams.get('categoryId') || '-1')
+		) || categoriesWithDefault[0]
+	);
+
+	const handleCategoryChange = (cat: Category) => {
+		setSelectedCat(cat);
+		const params = new URLSearchParams(searchParams.toString());
+		params.set('categoryId', cat.id.toString());
+		router.push(`/catalog?${params.toString()}`);
+	};
 
 	return (
-		<Listbox
-			as='div'
-			value={selectedCat}
-			onChange={setSelectedCat}
-			ref={listboxRef}
-		>
+		<Listbox as='div' value={selectedCat} onChange={handleCategoryChange}>
 			<ListboxButton className={styles.selectResult}>
 				{selectedCat.name}
 				<ArrowIcon />

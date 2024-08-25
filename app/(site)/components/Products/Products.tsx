@@ -4,12 +4,10 @@ import { Card } from '../Card/Card';
 import { Product } from '@/interfaces/products.interface';
 import { ProductsProps } from './Products.props';
 
-export async function Products({ className, ...props }: ProductsProps) {
-	const limit = 24;
-	const offset = 0;
-
-	const products: Product[] = await getProducts(limit, offset);
-
+export async function Products({ products, noProductsMessage, className, ...props }: ProductsProps) {
+	if (products.length === 0) {
+		return <div className={styles.noProducts}>{noProductsMessage || 'Ничего не найдено'}</div>;
+	  }
 	return (
 		<div className={styles.list} {...props}>
 			{products.map(p => (
