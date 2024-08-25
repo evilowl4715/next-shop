@@ -1,6 +1,5 @@
 import styles from './Card.module.css';
 import Image from 'next/image';
-import CardImg from './card.png';
 import LikeIcon from './Like.svg';
 import { ForwardedRef } from 'react';
 import { CardProps } from './Card.props';

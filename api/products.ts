@@ -1,7 +1,7 @@
 import { API } from "@/app/api";
 import { ProductsModel, Product } from "@/interfaces/products.interface";
 
-export async function getProducts(limit: number = 10, offset: number = 0): Promise<Product[]> {
+export async function getProducts(limit: number = 24, offset: number = 0): Promise<Product[]> {
   const url = `${API.products}?limit=${limit}&offset=${offset}`;
   const res = await fetch(url);
 

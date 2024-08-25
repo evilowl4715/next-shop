@@ -48,9 +48,7 @@ export const Header = ({ className, ...props }: HeaderProps) => {
 	return (
 		<header className={styles.header} {...props}>
 			<div className='container'>
-				<div
-					className={styles.row}
-				>
+				<div className={styles.row}>
 					<div className={styles.logo}>
 						<a className={AllertaStencil.className} href='/'>
 							<span>S</span>HOPPE
@@ -82,7 +80,7 @@ export const Header = ({ className, ...props }: HeaderProps) => {
 									className={cn(styles.navbar, {
 										[styles.opened]: menuOpened
 									})}
-									onClick={() => setMenuOpened(!menuOpened)}
+									onClick={() => setMenuOpened(menuOpened => !menuOpened)}
 								>
 									<span></span>
 									<span></span>

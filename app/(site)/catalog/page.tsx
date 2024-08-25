@@ -1,17 +1,25 @@
-import styles from "./page.module.css";
-import { Header } from "@/components/Header/Header";
-import { Footer } from "@/components/Footer/Footer";
-import { Products } from "../components/Products/Products";
+import type { Metadata } from 'next';
+import styles from './page.module.css';
+import { Products } from '../components/Products/Products';
+import { Sidebar } from '../components/Sidebar/Sidebar';
+
+export const metadata: Metadata = {
+	title: 'Каталог',
+	description: 'Каталог товаров'
+};
 
 export default function Catalog() {
-  return (
-    <main className={styles.main}>
-      <Header/>
-      <div className="container">
-        <h1>catalog</h1>
-        <Products/>
-      </div>
-      <Footer/>
-    </main>
-  );
+	return (
+		<main className={styles.main}>
+			<div className='container'>
+				<div className='title'>
+					<h1>Каталог товаров</h1>
+				</div>
+				<div className={styles.wrapper}>
+					<Sidebar />
+					<Products className={styles.products} />
+				</div>
+			</div>
+		</main>
+	);
 }
