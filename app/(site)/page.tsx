@@ -4,7 +4,8 @@ import { Footer } from "@/components/Footer/Footer";
 import { MainSelect } from "@/components/Select/MainSelect";
 import { MainSwitch } from "@/components/Switch/MainSwitch";
 import { RangeSlider } from "@/components/RangeSlider/RangeSlider";
-import { MainPagination } from "@/components/MainPagination/MainPagination";
+import { Pagination } from "@/components/Pagination/Pagination";
+
 
 export default function Home() {
   return (
@@ -14,7 +15,7 @@ export default function Home() {
       <MainSelect/>
       <MainSwitch/>
       <RangeSlider/>
-      <MainPagination/>
+      <Pagination/>
       </div>
       <Footer/>
     </main>
