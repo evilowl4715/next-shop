@@ -2,3 +2,9 @@
     max-width: 262px;
     width: 100%;
 }
+
+.filter {
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+}

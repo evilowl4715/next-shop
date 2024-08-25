@@ -1,7 +1,7 @@
 import { API } from "@/app/api";
-import { Category, FilterModel } from "@/interfaces/filter.interface";
+import { FilterModel } from "@/interfaces/filter.interface";
 
-export async function getFilters(maxPrice: number, minPrice:number): Promise<Category[]> {
+export async function getFilters(maxPrice: number, minPrice: number): Promise<FilterModel> {
   const url = `${API.filter}?maxPrice=${maxPrice}&minPrice=${minPrice}`;
   const res = await fetch(url);
 
@@ -10,6 +10,6 @@ export async function getFilters(maxPrice: number, minPrice:number): Promise<Cat
     throw new Error("Ошибка загрузки товаров");
   }
 
-  const allFilters: FilterModel = await res.json();
-  return allFilters.categories; // Возвращаем массив продуктов
+  const data: FilterModel = await res.json();
+  return data;
 }

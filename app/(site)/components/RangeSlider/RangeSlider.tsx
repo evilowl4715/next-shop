@@ -2,9 +2,10 @@
 import { Slider } from '@nextui-org/slider';
 import styles from './RangeSlider.module.css';
 import { useState } from 'react';
-export const RangeSlider = () => {
+import { RangeSliderProps } from './RangeSlider.props';
+export const RangeSlider = ({minValue, maxValue, ...props}:RangeSliderProps) => {
 
-	const [value, setValue] = useState([100, 300]);
+	const [value, setValue] = useState<number[]>([minValue, maxValue]);
 
 	const handleChange = (newValue:number | number[]) => {
 		if (Array.isArray(newValue)) {
@@ -15,13 +16,13 @@ export const RangeSlider = () => {
 	};
 
 	return (
-		<div>
+		<div {...props}>
 			<Slider
 				aria-labelledby='slider-label'
 				formatOptions={{ style: 'currency', currency: 'USD' }}
 				step={10}
-				maxValue={1000}
-				minValue={0}
+				maxValue={maxValue}
+				minValue={minValue}
 				value={value}
 				onChange={handleChange}
 				classNames={{
