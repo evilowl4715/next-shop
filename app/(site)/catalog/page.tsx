@@ -20,6 +20,7 @@ export default async function Page({
 		priceMax?: string;
 		page?: string;
 		discounted?: string;
+		name?: string;
 	};
 }) {
 	const categoryId = searchParams.categoryId
@@ -38,6 +39,7 @@ export default async function Page({
 
 
 	const discounted = searchParams.discounted === 'true';
+	const searchName = searchParams.name || '';
 
 
 	const filterData: FilterModel = await getFilters(
@@ -52,9 +54,18 @@ export default async function Page({
 		priceMax
 	);
 
-	const filteredProducts = discounted
-		? products.filter(product => product.discount !== undefined)
-		: products;
+	let filteredProducts = products;
+
+	if (discounted) {
+		filteredProducts = filteredProducts.filter((product) => product.discount !== undefined);
+	}
+
+	// Фильтр по названию
+	if (searchName) {
+		filteredProducts = filteredProducts.filter((product) =>
+			product.name.toLowerCase().includes(searchName.toLowerCase())
+		);
+	}
 
 	return (
 		<main className={styles.main}>

@@ -1,3 +1,4 @@
+
 import { ForwardedRef, forwardRef } from 'react';
 import styles from './Input.module.css';
 import { InputProps } from './Input.props';
@@ -5,7 +6,7 @@ import cn from 'classnames';
 
 export const Input = forwardRef(
 	(
-		{ error, placeholder, className, ...props }: InputProps,
+		{ error, placeholder, value, className, ...props }: InputProps,
 		ref: ForwardedRef<HTMLInputElement>
 	): JSX.Element => {
 		return (
@@ -16,6 +17,7 @@ export const Input = forwardRef(
 					})}
 					{...props}
 					ref={ref}
+					value={value}
 					placeholder={placeholder}
 				/>
 				{error && <span className={styles.errorMessage}>{error.message}</span>}
