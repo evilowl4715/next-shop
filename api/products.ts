@@ -1,7 +1,13 @@
 import { API } from "@/app/api";
 import { ProductsModel, Product } from "@/interfaces/products.interface";
 
-export async function getProducts(limit: number, offset: number, categoryId?: number, priceMin?: number, priceMax?: number): Promise<{ products: Product[], totalProducts: number, minPrice: number, maxPrice: number }> {
+export async function getProducts(
+  limit: number,
+  offset: number,
+  categoryId?: number,
+  priceMin?: number,
+  priceMax?: number
+): Promise<{ products: Product[], totalProducts: number, minPrice: number, maxPrice: number }> {
   const url = new URL(`${API.products}?limit=${limit}&offset=${offset}`);
 
   if (categoryId) {
@@ -28,8 +34,8 @@ export async function getProducts(limit: number, offset: number, categoryId?: nu
   const maxPrice = Math.max(...prices);
 
   return {
-    products: allProducts.products,   // Товары на текущей странице
-    totalProducts: allProducts.totalProducts,  // Общее количество товаров
+    products: allProducts.products, 
+    totalProducts: allProducts.totalProducts,
     minPrice,
     maxPrice,
   };

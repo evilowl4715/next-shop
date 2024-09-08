@@ -1,8 +1,11 @@
+.products {
+    flex: 1;
+}
+
 .list {
     display: flex;
     flex-wrap: wrap;
     gap: 25px;
-    flex: 1;
 }
 
 .product {

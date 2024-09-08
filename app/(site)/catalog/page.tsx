@@ -19,6 +19,7 @@ export default async function Page({
 		priceMin?: string;
 		priceMax?: string;
 		page?: string;
+		discounted?: string;
 	};
 }) {
 	const categoryId = searchParams.categoryId
@@ -35,11 +36,15 @@ export default async function Page({
 	const productsPerPage = 6;
 	const offset = (currentPage - 1) * productsPerPage;
 
+
+	const discounted = searchParams.discounted === 'true';
+
+
 	const filterData: FilterModel = await getFilters(
 		priceMax ?? 100,
 		priceMin ?? 0
 	);
-	const { products, totalProducts, minPrice, maxPrice } = await getProducts(
+	const { products, totalProducts } = await getProducts(
 		productsPerPage,
 		offset,
 		categoryId,
@@ -47,21 +52,25 @@ export default async function Page({
 		priceMax
 	);
 
+	const filteredProducts = discounted
+		? products.filter(product => product.discount !== undefined)
+		: products;
+
 	return (
 		<main className={styles.main}>
 			<div className='container'>
 				<div className={styles.wrapper}>
 					<Sidebar
 						categories={filterData.categories}
-						minPrice={minPrice}
-						maxPrice={maxPrice}
+						minPrice={filterData.minPrice}
+						maxPrice={filterData.maxPrice}
 					/>
 					<Products
-						products={products}
-						totalProducts={totalProducts}
+						products={filteredProducts}
+						totalProducts={discounted ? filteredProducts.length : totalProducts}
 						currentPage={currentPage}
 						productsPerPage={productsPerPage}
-						noProductsMessage="Ничего не найдено"
+						noProductsMessage='Ничего не найдено'
 					/>
 				</div>
 			</div>

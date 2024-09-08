@@ -20,16 +20,22 @@ export const Products = ({
 	noProductsMessage
 }: ProductsProps) => {
 	if (products.length === 0) {
-		return <div className={styles.noProducts}>{noProductsMessage || 'Ничего не найдено'}</div>;
+		return (
+			<div className={styles.noProducts}>
+				{noProductsMessage || 'Ничего не найдено'}
+			</div>
+		);
 	}
 
 	const totalPages = Math.ceil(totalProducts / productsPerPage);
 
 	return (
-		<div className={styles.list}>
-			{products.map((p) => (
-				<Card className={styles.product} key={p.sku} product={p} />
-			))}
+		<div className={styles.products}>
+			<div className={styles.list}>
+				{products.map(p => (
+					<Card className={styles.product} key={p.sku} product={p} />
+				))}
+			</div>
 			<Pagination totalPages={totalPages} currentPage={currentPage} />
 		</div>
 	);
