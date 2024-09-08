@@ -27,16 +27,14 @@ export const Products = ({
 		);
 	}
 
-	const totalPages = Math.ceil(totalProducts / productsPerPage);
+	// const totalPages = Math.ceil(totalProducts / productsPerPage);
 
 	return (
-		<div className={styles.products}>
 			<div className={styles.list}>
 				{products.map(p => (
 					<Card className={styles.product} key={p.sku} product={p} />
 				))}
+{/* <Pagination totalPages={totalPages} currentPage={currentPage} /> */}
 			</div>
-			<Pagination totalPages={totalPages} currentPage={currentPage} />
-		</div>
 	);
 };

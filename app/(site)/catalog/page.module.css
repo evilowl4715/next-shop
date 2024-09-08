@@ -7,3 +7,7 @@
     display: flex;
     gap: 35px;
 }
+
+.products {
+    flex: 1;
+}

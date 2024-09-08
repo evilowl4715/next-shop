@@ -5,6 +5,7 @@ import { Sidebar } from '../components/Sidebar/Sidebar';
 import { FilterModel } from '@/interfaces/filter.interface';
 import { getFilters } from '@/api/filter';
 import { getProducts } from '@/api/products';
+import { Pagination } from '../components/Pagination/Pagination';
 
 export const metadata: Metadata = {
 	title: 'Каталог',
@@ -37,10 +38,8 @@ export default async function Page({
 	const productsPerPage = 6;
 	const offset = (currentPage - 1) * productsPerPage;
 
-
 	const discounted = searchParams.discounted === 'true';
 	const searchName = searchParams.name || '';
-
 
 	const filterData: FilterModel = await getFilters(
 		priceMax ?? 100,
@@ -57,15 +56,19 @@ export default async function Page({
 	let filteredProducts = products;
 
 	if (discounted) {
-		filteredProducts = filteredProducts.filter((product) => product.discount !== undefined);
+		filteredProducts = filteredProducts.filter(
+			product => product.discount !== undefined
+		);
 	}
 
 	// Фильтр по названию
 	if (searchName) {
-		filteredProducts = filteredProducts.filter((product) =>
+		filteredProducts = filteredProducts.filter(product =>
 			product.name.toLowerCase().includes(searchName.toLowerCase())
 		);
 	}
+
+	const totalPages = Math.ceil(totalProducts / productsPerPage);
 
 	return (
 		<main className={styles.main}>
@@ -76,13 +79,19 @@ export default async function Page({
 						minPrice={filterData.minPrice}
 						maxPrice={filterData.maxPrice}
 					/>
-					<Products
-						products={filteredProducts}
-						totalProducts={discounted ? filteredProducts.length : totalProducts}
-						currentPage={currentPage}
-						productsPerPage={productsPerPage}
-						noProductsMessage='Ничего не найдено'
-					/>
+					<div className={styles.products}>
+						<Products
+							products={filteredProducts}
+							totalProducts={
+								discounted ? filteredProducts.length : totalProducts
+							}
+							currentPage={currentPage}
+							productsPerPage={productsPerPage}
+							noProductsMessage='Ничего не найдено'
+						/>
+
+						<Pagination totalPages={totalPages} currentPage={currentPage} />
+					</div>
 				</div>
 			</div>
 		</main>

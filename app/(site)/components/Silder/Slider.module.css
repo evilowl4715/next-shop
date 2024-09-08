@@ -1,0 +1,84 @@
+.slide {
+	position: relative;
+	height: 645px;
+	overflow: hidden;
+	border-radius: 15px;
+}
+
+.img {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.img img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.content {
+	position: relative;
+	z-index: 2;
+	color: #fff;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	box-sizing: border-box;
+	padding: 40px;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.content h2 {
+	font-weight: 500;
+	font-size: 33px;
+	line-height: 130%;
+	color: #fff;
+}
+
+.content p {
+	font-weight: 400;
+	font-size: 26px;
+	line-height: 135%;
+}
+
+.btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 30px;
+	border: 2px solid #fff;
+	border-radius: 6px;
+	width: 193px;
+	height: 53px;
+	transition: all 0.3s;
+	font-weight: 700;
+	font-size: 20px;
+	text-align: center;
+	color: #fff;
+}
+
+.btn:hover {
+	background: #000;
+	color: #fff;
+    border-color: #000;
+}
+
+.dots {
+    display: flex;
+    gap: 10px;
+}
+
+.dots li {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background: #fff;
+}
+
+.dots li button {
+    opacity: 0;
+}
