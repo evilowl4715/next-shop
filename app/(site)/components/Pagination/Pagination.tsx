@@ -1,39 +1,38 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import styles from './Pagination.module.css';
-import { usePagination, PaginationItemType } from '@nextui-org/pagination';
 import cn from 'classnames';
 
-export const Pagination = () => {
-	const { activePage, range, setPage } = usePagination({
-		total: 10,
-	});
+interface PaginationProps {
+	totalPages: number;
+	currentPage: number;
+}
+
+export const Pagination = ({ totalPages, currentPage }: PaginationProps) => {
+	const router = useRouter();
+
+	const handlePageChange = (page: number) => {
+		// Обновляем URL при смене страницы
+		router.push(`?page=${page}`);
+	};
 
 	return (
 		<div className={styles.pagination}>
-			<p>Active page: {activePage}</p>
 			<ul className={styles.list}>
-				{range.map(page => {
-					if (typeof page === 'number') {
-						return (
-							<li
-								key={page}
-								aria-label={`page ${page}`}
-								className={styles.item}
-							>
-								<button
-									className={cn(
-										styles.btn,
-										activePage === page && styles.activePage
-									)}
-									onClick={() => setPage(page)}
-								>
-									{page}
-								</button>
-							</li>
-						);
-					}
-				})}
+				{Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+					<li key={page} aria-label={`page ${page}`} className={styles.item}>
+						<button
+							className={cn(
+								styles.btn,
+								currentPage === page && styles.activePage
+							)}
+							onClick={() => handlePageChange(page)}
+						>
+							{page}
+						</button>
+					</li>
+				))}
 			</ul>
 		</div>
 	);

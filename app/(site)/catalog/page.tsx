@@ -14,7 +14,12 @@ export const metadata: Metadata = {
 export default async function Page({
 	searchParams
 }: {
-	searchParams: { categoryId?: string; priceMin?: string; priceMax?: string };
+	searchParams: {
+		categoryId?: string;
+		priceMin?: string;
+		priceMax?: string;
+		page?: string;
+	};
 }) {
 	const categoryId = searchParams.categoryId
 		? parseInt(searchParams.categoryId)
@@ -26,13 +31,17 @@ export default async function Page({
 		? parseInt(searchParams.priceMax)
 		: undefined;
 
+	const currentPage = searchParams.page ? parseInt(searchParams.page) : 1;
+	const productsPerPage = 6;
+	const offset = (currentPage - 1) * productsPerPage;
+
 	const filterData: FilterModel = await getFilters(
 		priceMax ?? 100,
 		priceMin ?? 0
 	);
-	const { products, minPrice, maxPrice } = await getProducts(
-		24,
-		0,
+	const { products, totalProducts, minPrice, maxPrice } = await getProducts(
+		productsPerPage,
+		offset,
 		categoryId,
 		priceMin,
 		priceMax
@@ -47,7 +56,13 @@ export default async function Page({
 						minPrice={minPrice}
 						maxPrice={maxPrice}
 					/>
-					<Products products={products} noProductsMessage="Ничего не найдено"  />
+					<Products
+						products={products}
+						totalProducts={totalProducts}
+						currentPage={currentPage}
+						productsPerPage={productsPerPage}
+						noProductsMessage="Ничего не найдено"
+					/>
 				</div>
 			</div>
 		</main>
