@@ -1,55 +1,83 @@
-* {
-    padding: 0;
-    margin: 0;
+@import 'slick-carousel/slick/slick.css';
+@import 'slick-carousel/slick/slick-theme.css';
+
+:root {
+	--select-width: 261px;
 }
 
-html, body {
-    overflow-x: hidden;
+* {
+	padding: 0;
+	margin: 0;
+}
+
+html,
+body {
+	overflow-x: hidden;
 }
 
 body {
-    font-size: 16px;
-    line-height: normal;
-    color: #000;
-    font-weight: 400;
+	font-size: 16px;
+	line-height: normal;
+	color: #000;
+	font-weight: 400;
 }
 
 ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+	list-style: none;
+	padding: 0;
+	margin: 0;
 }
 
-
 a {
-    text-decoration: none;
-    color: inherit;
-    font-family: inherit;
-    transition: all 0.3s;
+	text-decoration: none;
+	color: inherit;
+	font-family: inherit;
+	transition: all 0.3s;
 }
 
 a:hover {
-    color: #a18a68;
+	color: #a18a68;
 }
 
 img {
-    max-width: 100%;
-    max-height: 100%;
+	max-width: 100%;
+	max-height: 100%;
 }
 
-svg, path, circle, ellipse {
-    transition: all 0.3s;
+svg,
+path,
+circle,
+ellipse {
+	transition: all 0.3s;
+}
+
+h1 {
+	font-weight: 500;
+	font-size: 33px;
+	line-height: 130%;
+	color: #000;
+}
+
+h2 {
+	font-weight: 500;
+	font-size: 33px;
+	line-height: 130%;
+	color: #000;
+}
+
+.title {
+	margin-bottom: 40px;
 }
 
 .container {
-    max-width: 1250px;
-    width: 100%;
-    margin: 0 auto;
+	max-width: 1250px;
+	width: 100%;
+	margin: 0 auto;
 }
 
-@media (max-width: 1250px ) {
-    .container {
-        padding: 0 15px;
-        box-sizing: border-box;
-    }
+@media (max-width: 1250px) {
+	.container {
+		padding: 0 15px;
+		box-sizing: border-box;
+	}
 }

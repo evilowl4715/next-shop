@@ -1,0 +1,13 @@
+.main {
+    padding-top: 100px;
+    padding-bottom: 150px;
+}
+
+.wrapper {
+    display: flex;
+    gap: 35px;
+}
+
+.products {
+    flex: 1;
+}
